@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>05_component</title>
+</head>
+<body>
+
+  <div id="app">
+    <app_footer></app_footer>
+    <app_header />
+    <hr>
+  </div>
+
+  <div class="app2">
+    <app_header></app_header>
+    <app_content></app_content>
+    <hr>
+  </div>
+
+  <div class="app3">
+    <app_content></app_content>
+    <app_footer></app_footer>
+  </div>
+  
+  
+  <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+  <script>
+    // Vue.component('컴포넌트이름', {컴포넌트내용}) => 전역컴포넌트
+    Vue.component('app_header', {
+      template: '<h1>header-전역방식</h1>' // template : 화면에 사용할 요소(html, css)
+    })
+
+    Vue.component('app_content', {
+      template: `<div> 
+        <h3>내용입니다</h3> 
+        <span>orem ipsum dolor sit amet consectetur adipisicing elit.<br> Corrupti exercitationem laudantium minima tenetur explicabo quis rem.</span>
+        </div>` // template : 화면에 사용할 요소(html, css)
+    })
+
+    new Vue({
+      el: '#app',
+      component:{
+        'app_footer':{
+          template:'<footer>푸터부분입니다.</footer>'
+        }
+      }
+    });
+
+    new Vue({
+      el: '.app2',
+    });
+
+    new Vue({
+      el: '.app3',
+    });
+
+  </script>
+</body>
+</html>
