@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>07_eventEmit</title>
+</head>
+<body>
+  <!-- 
+    * 하위 컴포넌트에서 상위 컴포넌트로 통신
+    * 하위 컴포넌트에서 이벤트 발생, 넘겨주고 받아옴
+  -->
+  <div id="app">
+    <!-- v-on: 하위컴포넌트에서 발생한 이벤트명 = '상위컴포넌트 매서드명'-->
+    <app_header v-on:pass='logText'></app_header>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+  <script>
+    const appHeader = {
+      // v-on:click => 이벤트 핸들러
+      template: "<button v-on:click='passEvent'>Click me!</button>",
+      // 함수선언
+      methods:{
+        passEvent : function(){
+          // this.$emit('이벤트 명'); => (event)에밋을 이용해서 pass라는 이벤트 발생
+          this.$emit('pass');
+        }
+      }
+    }
+    new Vue({
+      el:'#app',
+      components:{
+        'app_header' : appHeader,
+      },
+      methods:{
+        logText: function(){
+          console.log('이벤트 발생!')
+        }
+      }
+    })
+  </script>
+</body>
+</html>
