@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>09_eventBus</title>
+</head>
+<body>
+  <!-- 
+    * 이벤트 버스 : props의 속성을 이용하지 않고 컴포넌트간 데이터 전달
+    * react의 리덕스, ContextApi같이 쓰고 싶으면 Vuex사용
+  -->
+  
+  <div id="app">
+    <child_com></child_com>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+  <script>
+    var eventBus = new Vue({ // 이벤트버스로 활용할 인스턴스 생성
+  
+    });
+
+    Vue.component('child_com',{
+      template: '<div>하위컴포넌트 영역<button v-on:click="showLog">click</button></div>',
+      methods:{
+        showLog: function(){
+          eventBus.$emit('trigger', 100);
+        }
+      }
+    });
+
+    new Vue({
+      el:'#app',
+      created: function(){
+        eventBus.$on('trigger', function(value){
+          console.log('이벤트 전달받음, 받은 값 :', value)
+        })
+      }
+    });
+  </script>
+</body>
+</html>
