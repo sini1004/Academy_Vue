@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>01_router</title>
+</head>
+<body>
+  <div id="app">
+    <p>
+      <router-link to="/login">Go to Login</router-link>
+      <router-link to="/main">Go to Main</router-link>
+    </p>
+    <router-view></router-view> 
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+  <script src="https://unpkg.com/vue-router@3.0.0/dist/vue-router.js"></script>
+
+  <script>
+    const Login = { template: '<div> 로그인 </div>' }
+    const Main = { template: '<div> 메인페이지 </div>' }
+    // 라우터 인스턴스 생성
+    const router = new VueRouter({
+      // 각 페이지의 라우팅 정보
+      routes : [
+        // 각 페이지 컴포넌트 형식으로 만들기 (객체로)
+        {
+          path: '/login',
+          component: Login
+        },
+        {
+          path: '/main',
+          component: Main
+        }
+      ]
+    });
+
+    new Vue({
+      //el: '#app',
+      router
+    }).$mount('#app')
+  </script>
+</body>
+</html>
