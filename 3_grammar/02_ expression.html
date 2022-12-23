@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Javascript Expression(자바스크립트 표현식)</title>
+</head>
+<body>
+  <div id="app">
+    <p>{{msg}}</p>
+    <p>{{msg + 'Good~'}}</p>
+    <p>{{msg.split('').reverse().join('')}}</p>
+    <p>{{reverseMsg}}</p>
+    <hr>
+    {{num ? 100 : 0 }} <!--삼항연산자 가능-->
+    <!-- {{const a = 10}} => 선언문 사용 불가 -->
+    <p>{{num}}</p>
+    <p>{{num * 2}}</p>
+    <p>{{doubleNum}}</p>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+  <script src="https://unpkg.com/vue-router@3.0.0/dist/vue-router.js"></script>
+
+  <script>
+    new Vue({
+      el: '#app',
+      data: {
+        msg: '안녕하세영. vue에서 자바스크립트 표현식 학습중입니다.',
+        num: 10,
+      },
+      computed:{
+        doubleNum:function(){
+          return this.num*4
+        },
+        reverseMsg:function(){
+          return this.msg.split('').reverse().join('')
+        }
+      }
+    })
+  </script>
+</body>
+</html>
