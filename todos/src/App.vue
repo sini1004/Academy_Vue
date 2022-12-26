@@ -31,14 +31,23 @@ export default {
   font-weight: normal;
   font-style: normal;
 }
+body {
+  background: #f2f2f2;
+}
 #app {
   font-family: 'S-CoreDream-3Light', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  width: 500px;
-  min-width: 360px;
-  margin: 0 auto;
+  max-width: 500px;
+  margin: auto;
+  margin-top: 50px;
+  padding: 20px;
+  border: 3px solid #6c1eb6;
+  border-radius: 1rem;
+}
+li {
+  list-style: none;
 }
 </style>
