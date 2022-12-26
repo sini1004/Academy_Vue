@@ -1,6 +1,6 @@
 <template>
   <div>
-    <i class="fa-solid fa-thumbtack"></i> TODOHEADER <i class="fa-solid fa-thumbtack"></i>
+    <h1>CHECK LIST</h1>
   </div>
 </template>
 
@@ -10,6 +10,9 @@ export default {
 }
 </script>
 
-<style>
-
+<style scoped>
+h1 {
+  font-weight: bold;
+  color: #6c1eb6;
+}
 </style>
