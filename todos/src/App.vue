@@ -34,6 +34,9 @@ export default {
 body {
   background: #f2f2f2;
 }
+.shadow {
+  box-shadow: 3px 3px 5px rgba(0,0,0,.1);
+}
 #app {
   font-family: 'S-CoreDream-3Light', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;

@@ -1,5 +1,5 @@
 <template>
-  <div class="">
+  <div class="inputBox">
     <input type="text" placeholder="Please enter a task to do." v-model="newTodoItem" v-on:keyup.enter="addTodo">
     <span v-on:click="addTodo">
       <i class="fa-solid fa-plus"></i>
@@ -33,5 +33,34 @@ export default {
 </script>
 
 <style scoped>
-  
+  .inputBox { 
+    height: 50px;
+    line-height: 50px;
+    display: flex;
+    justify-content: space-between;
+  }
+  input {
+    width: calc(95% - 50px);
+    border-radius: 30px;
+    border: none;
+    padding: 0 10px;
+    font-size: 1rem;
+  }
+  input:focus {
+    outline: none;
+  }
+  span {
+    background: #6c1eb6;
+    color: white;
+    font-size: 1.2rem;
+    width: 50px;
+    border-radius: 50px;
+  }
+  i {
+    vertical-align: middle;
+    transition: .4s ease-in;
+  }
+  i:hover {
+    transform: rotate(90deg);
+  }
 </style>

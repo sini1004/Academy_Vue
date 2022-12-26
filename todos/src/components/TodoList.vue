@@ -1,7 +1,7 @@
 <template>
   <div>
     <ul>
-      <li>할일</li>
+      <li class="shadow">할일</li>
       <li>할일</li>
       <li>할일</li>
     </ul>
