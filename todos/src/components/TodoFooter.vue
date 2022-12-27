@@ -8,8 +8,7 @@
 export default {
   methods:{
     clearTodo(){
-      // localStorage에서만 삭제
-      localStorage.clear();
+      this.$emit('removeAll');
     }
   }
 }

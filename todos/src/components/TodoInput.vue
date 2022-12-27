@@ -12,7 +12,7 @@ export default {
   data(){
     return {
       newTodoItem:''
-    }
+    };
   },
   methods: {
     addTodo(){
@@ -20,8 +20,10 @@ export default {
       // console.log('클릭', this.newTodoItem);
       if(this.newTodoItem !== ' '){
         let value = this.newTodoItem && this.newTodoItem.trim();
-        localStorage.setItem(value, value);
-        this.clearInput(); // 분리 단일 책임 원칙
+        // localStorage.setItem(value, value);
+        this.$emit('addTodo', value);
+        this.clearInput();
+        // this.newTodoItem(); // 분리 단일 책임 원칙
       }
     },
     clearInput(){

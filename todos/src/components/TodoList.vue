@@ -1,7 +1,7 @@
 <template>
   <div>
     <ul>
-      <li class="shadow" v-for="(todoItem, index) in todoItems" :key="index">
+      <li class="shadow" v-for="(todoItem, index) in propsdata" :key="index">
         <span><i class="checkBtn fa-solid fa-check"></i></span>
         <span class="todolist">{{ todoItem }}</span>
         <span class="removeBtn" @click="removeTodo(todoItem, index)"><i class="fa-solid fa-trash"></i></span>
@@ -12,21 +12,22 @@
 
 <script>
 export default {
-  data(){
-    return{
-    // Storage 내용을 넣을 빈 배열 생성
-    todoItems:[]
-    }
-  },
-  created: function(){
-    if(localStorage.length>0){
-      for(let i = 0; i < localStorage.length; i++){
-        this.todoItems.push(localStorage.key(i));
-      }
-    }
-  },
+  props:['propsdata'],
+  // data(){
+  //   return{
+  //   // Storage 내용을 넣을 빈 배열 생성
+  //   todoItems:[]
+  //   }
+  // },
+  // created: function(){
+  //   if(localStorage.length>0){
+  //     for(let i = 0; i < localStorage.length; i++){
+  //       this.todoItems.push(localStorage.key(i));
+  //     }
+  //   }
+  // },
   methods: {
-    removeTodo(todoItem, index){
+    removeTodo:function(todoItem, index){
       localStorage.removeItem(todoItem)
       this.todoItems.splice(index, 1);
       // console.log('키 : ' + index + ' 밸류 : ' + todoItem)
