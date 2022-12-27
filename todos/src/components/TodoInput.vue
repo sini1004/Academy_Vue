@@ -20,7 +20,7 @@ export default {
       // console.log('클릭', this.newTodoItem);
       if(this.newTodoItem !== ' '){
         let value = this.newTodoItem && this.newTodoItem.trim();
-        localStorage.setItem(value,value);
+        localStorage.setItem(value, value);
         this.clearInput(); // 분리 단일 책임 원칙
       }
     },
