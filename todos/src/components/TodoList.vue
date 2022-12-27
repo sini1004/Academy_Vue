@@ -4,7 +4,7 @@
       <li class="shadow" v-for="(todoItem, index) in todoItems" :key="index">
         <span><i class="checkBtn fa-solid fa-check"></i></span>
         <span class="todolist">{{ todoItem }}</span>
-        <span class="removeBtn"><i class="fa-solid fa-trash"></i></span>
+        <span class="removeBtn" @click="removeTodo(todoItem, index)"><i class="fa-solid fa-trash"></i></span>
       </li>
     </ul>
   </div>
@@ -23,6 +23,13 @@ export default {
       for(let i = 0; i < localStorage.length; i++){
         this.todoItems.push(localStorage.key(i));
       }
+    }
+  },
+  methods: {
+    removeTodo(todoItem, index){
+      localStorage.removeItem(todoItem)
+      this.todoItems.splice(index, 1);
+      // console.log('키 : ' + index + ' 밸류 : ' + todoItem)
     }
   }
 }
