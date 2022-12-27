@@ -1,9 +1,11 @@
 <template>
   <div>
     <ul>
-      <li class="shadow"></li>
-      <li>할일</li>
-      <li>할일</li>
+      <li class="shadow" v-for="(todoItem, index) in todoItems" :key="index">
+        <span><i class="checkBtn fa-solid fa-check"></i></span>
+        <span class="todolist">{{ todoItem }}</span>
+        <span class="removeBtn"><i class="fa-solid fa-trash"></i></span>
+      </li>
     </ul>
   </div>
 </template>
@@ -26,6 +28,37 @@ export default {
 }
 </script>
 
-<style>
-
+<style scoped>
+ul {
+  margin: 0;
+  padding: 0;
+}
+ul li {
+  display: flex;
+  height: 50px;
+  line-height: 50px;
+  background: white;
+  margin: 1rem 0;
+  border-radius: 30px;
+  padding: 0 20px;
+  text-align: left;
+}
+.checkBtn {
+  margin-right: 10px;
+  color: blueviolet;
+}
+.todolist {
+  white-space: normal;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.removeBtn {
+  margin-left: auto;
+}
+.removeBtn i {
+  transition: .4s ease-in;
+}
+.removeBtn i:hover {
+  transform: scale(1.2);
+}
 </style>
