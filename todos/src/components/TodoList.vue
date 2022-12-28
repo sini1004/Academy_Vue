@@ -1,12 +1,12 @@
 <template>
   <div>
-    <ul>
+    <TransitionGroup name="list" tag="ul">
       <li class="shadow" v-for="(todoItem, index) in propsdata" :key="index">
         <span><i class="checkBtn fa-solid fa-check"></i></span>
         <span class="todolist">{{ todoItem }}</span>
         <span class="removeBtn" @click="removeTodo(todoItem, index)"><i class="fa-solid fa-trash"></i></span>
       </li>
-    </ul>
+    </TransitionGroup>
   </div>
 </template>
 
@@ -54,7 +54,7 @@ ul li {
 }
 .checkBtn {
   margin-right: 10px;
-  color: blueviolet;
+  color: #8425de;
 }
 .todolist {
   white-space: normal;
@@ -63,11 +63,23 @@ ul li {
 }
 .removeBtn {
   margin-left: auto;
+  color: #8425de;
 }
 .removeBtn i {
   transition: .4s ease-in;
 }
 .removeBtn i:hover {
   transform: scale(1.2);
+}
+
+/* TransitionGroup */
+.list-enter-active,
+.list-leave-active {
+  transition: all 1s ease;
+}
+.list-enter,
+.list-leave-to {
+  opacity: 0;
+  transform: translateY(20px);
 }
 </style>
