@@ -1,13 +1,23 @@
 <template>
-  <div class="inputBox">
-    <input class="shadow" type="text" placeholder="Please enter a task to do." v-model="newTodoItem" v-on:keyup.enter="addTodo">
+  <div class="inputBox shadow">
+    <input 
+      type="text" 
+      placeholder="Please enter a task to do." 
+      v-model="newTodoItem" 
+      v-on:keyup.enter="addTodo"
+    >
     <span v-on:click="addTodo">
       <i class="fa-solid fa-plus"></i>
     </span>
+
+    <!-- modal popup -->
+    <AlertModal>ff</AlertModal>
   </div>
 </template>
 
 <script>
+import AlertModal from './common/AlertModal.vue';
+
 export default {
   data(){
     return {
@@ -18,7 +28,7 @@ export default {
     addTodo(){
       // localStorage.setItem(this.newTodoItem, this.newTodoItem);
       // console.log('클릭', this.newTodoItem);
-      if(this.newTodoItem !== ' '){
+      if(this.newTodoItem !== ''){
         let value = this.newTodoItem && this.newTodoItem.trim();
         // localStorage.setItem(value, value);
         this.$emit('addTodo', value);
@@ -30,6 +40,9 @@ export default {
       // 인풋박스 입력 후 초기화
       this.newTodoItem = '';
     }
+  },
+  components: {
+    AlertModal: AlertModal
   }
 }
 </script>
