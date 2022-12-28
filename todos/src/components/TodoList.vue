@@ -28,8 +28,9 @@ export default {
   // },
   methods: {
     removeTodo:function(todoItem, index){
-      localStorage.removeItem(todoItem)
-      this.todoItems.splice(index, 1);
+      this.$emit('removeTodo', todoItem, index);
+      // localStorage.removeItem(todoItem);
+      // this.todoItems.splice(index, 1);
       // console.log('키 : ' + index + ' 밸류 : ' + todoItem)
     }
   }
