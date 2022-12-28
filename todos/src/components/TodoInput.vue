@@ -1,17 +1,25 @@
 <template>
-  <div class="inputBox shadow">
+  <div class="inputBox">
     <input 
+      class="shadow"
       type="text" 
       placeholder="Please enter a task to do." 
       v-model="newTodoItem" 
       v-on:keyup.enter="addTodo"
     >
-    <span v-on:click="addTodo">
+    <span v-on:click="addTodo" class="addcontainer">
       <i class="fa-solid fa-plus"></i>
     </span>
 
     <!-- modal popup -->
-    <AlertModal>ff</AlertModal>
+    <AlertModal v-if="showModal">
+      <h3 slot="header">확인!</h3>
+      <span slot="footer">
+        내용을 입력해주세요.
+        <i class="fa-solid fa-circle-xmark closeModalBtn" v-on:click="showModal = false"></i>
+      </span>
+      <!-- <button class="modal-default-button" @click="$emit('close')"> OK </button> -->
+    </AlertModal>
   </div>
 </template>
 
@@ -21,7 +29,8 @@ import AlertModal from './common/AlertModal.vue';
 export default {
   data(){
     return {
-      newTodoItem:''
+      newTodoItem:'',
+      showModal: false
     };
   },
   methods: {
@@ -34,6 +43,8 @@ export default {
         this.$emit('addTodo', value);
         this.clearInput();
         // this.newTodoItem(); // 분리 단일 책임 원칙
+      } else {
+        this.showModal = true;
       }
     },
     clearInput(){
@@ -65,7 +76,7 @@ export default {
   input:focus {
     outline: none;
   }
-  span {
+  .addcontainer {
     background: #6c1eb6;
     color: white;
     font-size: 1.2rem;
@@ -78,5 +89,8 @@ export default {
   }
   i:hover {
     transform: rotate(90deg);
+  }
+  .closeModalBtn {
+    color: #333;
   }
 </style>
