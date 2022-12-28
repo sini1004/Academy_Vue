@@ -1,6 +1,6 @@
 <template>
   <div class="inputBox">
-    <input type="text" placeholder="Please enter a task to do." v-model="newTodoItem" v-on:keyup.enter="addTodo">
+    <input class="shadow" type="text" placeholder="Please enter a task to do." v-model="newTodoItem" v-on:keyup.enter="addTodo">
     <span v-on:click="addTodo">
       <i class="fa-solid fa-plus"></i>
     </span>

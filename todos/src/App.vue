@@ -75,7 +75,7 @@ body {
   margin-top: 50px;
   padding: 20px;
   border: 3px solid #6c1eb6;
-  border-radius: 1rem;
+  box-shadow: 8px 8px #c17eff;
 }
 li {
   list-style: none;
